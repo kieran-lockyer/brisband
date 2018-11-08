@@ -100,7 +100,7 @@ stripe, postgres,
 
 #Task Allocation & Tracking
 Q.17 How did we allocate & track tasks during this project?
-
+4
 
 
 #Agile Methodology
