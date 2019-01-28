@@ -3,7 +3,12 @@
 <nav class="nav-extended">
     <div class="nav-wrapper">
         <%= link_to 'BrisBand', home_index_path, class: "brand-logo" %>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <span onclick="openNav()" class="king hide-on-large-only">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </span>
+         <%# normal hav below  %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if user_signed_in? %>
                 <li><%= link_to current_user.name, current_user %></li>
@@ -19,7 +24,7 @@
         </ul>
     </div>
     <div class="nav-content">
-        <ul class="tabs tabs-transparent">
+        <ul class="tabs tabs-transparent hide-on-med-and-down">
             <li class="tab"><%= link_to 'Gear', items_path %></li>
             <li class="tab"><%= link_to 'Bands', bands_path %></li>
             <li class="tab"><%= link_to 'Jams - COMING SOON!', root_path %></li>
@@ -27,3 +32,22 @@
         </ul>
     </div>
 </nav>
+
+<%# side nav open on click %>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" onclick="closeNav()"><%= link_to 'BrisBand', home_index_path, class: "brand-logo" %></a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><%= link_to 'Gear', items_path, onclick: "closeNav()" %></a>
+    <a href="javascript:void(0)" onclick="closeNav()"><%= link_to 'Bands', bands_path %></a>
+    <a href="javascript:void(0)" onclick="closeNav()"><% if user_signed_in? %>
+                <li><%= link_to current_user.name, current_user %></li>
+                <li><%= link_to 'Conversations', inbox_conversations_path %></li>
+                <% if current_user.mailbox.inbox.unread(current_user).count > 0 %>
+                    <li><%= current_user.mailbox.inbox.unread(current_user).count %> Unread Messages</li>
+                <% end %>
+                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+                <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                <li><%= link_to 'Log in', new_user_session_path %></li>
+            <% end %></a>
+</div>
