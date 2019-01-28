@@ -3,7 +3,11 @@
 <nav class="nav-extended">
     <div class="nav-wrapper">
         <%= link_to 'BrisBand', home_index_path, class: "brand-logo" %>
-        <span onclick="openNav()"><a href="" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">MENU</i></a></span>
+        <span onclick="openNav()" class="king hide-on-large-only">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </span>
          <%# normal hav below  %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if user_signed_in? %>
