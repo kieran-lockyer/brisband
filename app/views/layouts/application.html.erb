@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+
   <head>
     <title>Brisband</title>
     <%= csrf_meta_tags %>
@@ -8,21 +10,26 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
 
-    <%= render "home/topnav" %>
+    <header>
+      <%= render "home/topnav" %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </header>
 
-    <div class="container">
-      <div class="sub-container">
+    <main>
+      <div class="container">
         <%= yield %>
       </div>
-    </div>
-    
+    </main>
+
+    <footer>
+      <%= render 'home/footer' %>
+    </footer>
+
   </body>
 
-  <%= render 'home/footer' %>
-  
 </html>
